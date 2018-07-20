@@ -21,6 +21,9 @@ echo 'export PYTHONPATH=$PWD/local/lib64/python2.6/site-packages:$PYTHONPATH' >>
 echo 'export LHAPDF_DATA_PATH=$PWD/local/share/LHAPDF:$LHAPDF_DATA_PATH' >> setup.sh
 . setup.sh
 lhapdf install MSTW2008lo68cl
+mkdir local/share/LHAPDF/PDFsets
+cp -r local/share/LHAPDF/MSTW2008lo68cl local/share/LHAPDF/PDFsets/
+. setup.sh
 cd pythia8235/
 ./configure --prefix=$PWD/../local --with-lhapdf6=$PWD/../local --with-fastjet3=$PWD/../local --with-hepmc2=$PWD/../local
 make && make install
