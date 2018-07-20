@@ -9,7 +9,7 @@
 doMG5=true
 
 mkdir local
-wget http://www.hepforge.org/archive/lhapdf/LHAPDF-6.2.0.tar.gz -O- | tar xz
+wget http://www.hepforge.org/archive/lhapdf/LHAPDF-6.1.6.tar.gz -O- | tar xz
 wget http://lcgapp.cern.ch/project/simu/HepMC/download/HepMC-2.06.09.tar.gz -O- | tar xz
 wget http://home.thep.lu.se/~torbjorn/pythia8/pythia8235.tgz -O- | tar xz
 wget http://www.fastjet.fr/repo/fastjet-3.3.1.tar.gz -O- | tar xz
