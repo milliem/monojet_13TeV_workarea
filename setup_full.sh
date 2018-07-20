@@ -38,6 +38,7 @@ if [ ! -d local/include/LHAPDF/ ]; then
   exit
 fi
 mkdir local/share/LHAPDF/PDFsets
+lhapdf --pdfdir=local/share/LHAPDF/PDFsets install MSTW2008lo68cl
 echo 'export PATH=$PWD/local/bin:$PATH' >> setup.sh
 echo 'export LD_LIBRARY_PATH=$PWD/local/lib:$LD_LIBRARY_PATH' >> setup.sh
 echo 'export PYTHONPATH=$PWD/local/lib64/python2.6/site-packages:$PYTHONPATH' >> setup.sh
