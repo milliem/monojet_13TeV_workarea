@@ -9,7 +9,7 @@
 doMG5=true
 
 mkdir local
-wget http://www.hepforge.org/archive/lhapdf/LHAPDF-6.1.4.tar.gz -O- | tar xz
+wget http://www.hepforge.org/archive/lhapdf/LHAPDF-6.2.0.tar.gz -O- | tar xz
 wget http://lcgapp.cern.ch/project/simu/HepMC/download/HepMC-2.06.09.tar.gz -O- | tar xz
 wget http://home.thep.lu.se/~torbjorn/pythia8/pythia8235.tgz -O- | tar xz
 wget http://www.fastjet.fr/repo/fastjet-3.3.1.tar.gz -O- | tar xz
@@ -38,7 +38,7 @@ if [ ! -d local/include/LHAPDF/ ]; then
   exit
 fi
 mkdir local/share/LHAPDF/PDFsets
-lhapdf --pdfdir=local/share/LHAPDF/PDFsets install MSTW2008lo68cl
+cp local/share/LHAPDF/pdfsets.index local/share/LHAPDF/PDFsets/
 echo 'export PATH=$PWD/local/bin:$PATH' >> setup.sh
 echo 'export LD_LIBRARY_PATH=$PWD/local/lib:$LD_LIBRARY_PATH' >> setup.sh
 echo 'export PYTHONPATH=$PWD/local/lib64/python2.6/site-packages:$PYTHONPATH' >> setup.sh
@@ -54,7 +54,10 @@ make main_SAD_template
 mkdir HepMC_out
 cd ../../
 if [ "$doMG5" = true ]; then
-  echo "After generating events with MG5_aMC, update path to unweighted_events.lhe in pythia8235/examples/main_SAD_template.cc (line 56). Then re-compile and run with:"
+  echo "In MG5_aMC_v2_5_5, run bin/mg5_aMC. At the prompt type:"
+  echo "  set nb_core = 2"
+  echo "  set lhapdf = /path/to/LHAPDF/installation/bin/lhapdf-config"
+  echo "Once you have generated events update line 56 in pythia8235/examples/main_SAD_template.cc. Then re-compile and run this macro with:"
 else
   echo "Please update path to unweighted_events.lhe in pythia8235/examples/main_SAD_template.cc (line 56), then re-compile and run with:"
 fi
