@@ -21,7 +21,7 @@ if [ "$doMG5" = true ]; then
 fi
 mv main_SAD_template.cc ../pythia8235/examples/
 cd ../ && rm master.zip && rm -rf monojet_13TeV_workarea-master/
-cd LHAPDF-6.1.4/ && ./configure --prefix=$PWD/../local && make && make install
+cd LHAPDF-6.1.6/ && ./configure --prefix=$PWD/../local && make && make install
 cd ../fastjet-3.3.1/ && ./configure --prefix=$PWD/../local && make && make install
 cd ../HepMC-2.06.09/ && ./configure --prefix=$PWD/../local --with-momentum=GEV --with-length=MM && make && make install
 cd ../
