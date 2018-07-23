@@ -15,7 +15,8 @@ wget http://home.thep.lu.se/~torbjorn/pythia8/pythia8235.tgz -O- | tar xz
 wget http://www.fastjet.fr/repo/fastjet-3.3.1.tar.gz -O- | tar xz
 wget https://github.com/milliem/monojet_13TeV_workarea/archive/master.zip && unzip master.zip
 if [ "$doMG5" = true ]; then
-  wget https://launchpad.net/mg5amcnlo/2.0/2.5.x/+download/MG5_aMC_v2.5.5.tar.gz -O- | tar xz
+  wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.3.2.tar.gz -O- | tar xz
+  #wget https://launchpad.net/mg5amcnlo/2.0/2.5.x/+download/MG5_aMC_v2.5.5.tar.gz -O- | tar xz
   cd monojet_13TeV_workarea-master/ && tar -xzvf SiM_SAD_UFO.tgz && tar -xzvf SiM_SVD_UFO.tgz
   mv SiM_SAD_UFO ../MG5_aMC_v2_5_5/models/ && mv SiM_SVD_UFO ../MG5_aMC_v2_5_5/models/
 fi
