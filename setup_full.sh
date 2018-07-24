@@ -90,3 +90,4 @@ nevents
 21000 = lhaid
 1.0 = lhe_version
 80.0 = xqcut
+True  = auto_ptj_mjj
