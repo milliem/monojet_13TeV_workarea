@@ -1,0 +1,49 @@
+! File: main_SiMs.cmnd
+! This file contains commands to be read in for a Pythia8 run.
+! Lines not beginning with a letter or digit are comments.
+! Names are case-insensitive  -  but spellings-sensitive!
+! The changes here are illustrative, not always physics-motivated.
+
+! Settings that will be used in a main program.
+Main:numberOfEvents = 7000          ! number of events to generate
+Main:timesAllowErrors = 1000          ! abort run after this many flawed events
+
+! Settings related to output in init(), next() and stat().
+Init:showChangedSettings = on      ! list changed settings
+Init:showAllSettings = off         ! list all settings
+Init:showChangedParticleData = on  ! list changed particle data
+Init:showAllParticleData = off     ! list all particle data
+Next:numberCount = 1000            ! print message every n events
+Next:numberShowLHA = 1             ! print LHA information n times
+Next:numberShowInfo = 1            ! print event information n times
+Next:numberShowProcess = 1         ! print process record n times
+Next:numberShowEvent = 1           ! print event record n times
+Stat:showPartonLevel = on          ! additional statistics on MPI
+
+! Beam parameter settings. Values below agree with default ones.
+Beams:frameType = 4 # 4 doesn't work with MG5@MC v2 6.3.2?
+Beams:LHEF = /coepp/cephfs/mel/milliem/CelineCollaboration/workarea/MG5_aMC_v2_6_3_2/output_SAD_1000_100_0p2_1/Events/run_02/unweighted_events.lhe
+Beams:idA = 2212                   ! first beam, p = 2212, pbar = -2212
+Beams:idB = 2212                   ! second beam, p = 2212, pbar = -2212
+Beams:eCM = 8000.                 ! CM energy of collision
+
+! Jet matching. See more here: http://home.thep.lu.se/~torbjorn/pythia81html/JetMatching.html
+JetMatching:merge = on
+JetMatching:scheme = 1 # Use MLM scheme
+JetMatching:setMad = off # Ignore matching parameters in LHEF
+JetMatching:jetAlgorithm = 2 # Use SlowJet clustering algorithm
+JetMatching:doShowerKt = off # off by default (use classical MLM scheme)
+JetMatching:nQmatch = 4 # All quarks except bottoms and tops are treated as light quarks 
+JetMatching:clFact = 1.0 # = alpsfact in MG run_card
+JetMatching:qCut = 80.0
+JetMatching:eTjetMin = 80.0 # Minimum transverse energy inside a cone for a jet to be accepted
+JetMatching:coneRadius = 1 # R parameter of the Anti-kT algorithm used for jet finding, default = 1
+JetMatching:etaJetMax = 100.0
+JetMatching:nJetMax = 2
+
+! PDF settings. Default is to use internal PDFs
+! some pdf sets examples: cteq61.LHpdf cteq61.LHgrid MRST2004nlo.LHgrid
+Tune:preferLHAPDF = 2
+PDF:pSet = LHAPDF6:MSTW2008lo68cl.LHgrid
+Tune:ee = 3
+Tune:pp = 10
