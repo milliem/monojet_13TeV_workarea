@@ -20,6 +20,7 @@ wget http://rivet.hepforge.org/hg/bootstrap/raw-file/2.6.0/rivet-bootstrap
 wget https://github.com/milliem/monojet_13TeV_workarea/archive/master.zip && unzip master.zip
 if [ "$doMG5" = true ]; then
   wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.3.2.tar.gz -O- | tar xz
+  sed -i "s|misc.Popen(exe|misc.Popen([exe]|g" MG5_aMC_v2_6_3_2/madgraph/various/cluster.py
   cd monojet_13TeV_workarea-master/ && tar -xzvf SiM_SAD_UFO.tgz && tar -xzvf SiM_SVD_UFO.tgz
   mv SiM_SAD_UFO ../MG5_aMC_v2_6_3_2/models/ && mv SiM_SVD_UFO ../MG5_aMC_v2_6_3_2/models/
   cd ../
@@ -76,7 +77,7 @@ if [ "$doMG5" = true ]; then
   echo "     21000 = lhaid"
   echo "     1.0 = lhe_version"
   echo "     80.0 = xqcut"
-  echo "     True  = auto_ptj_mjj"
+  echo "     80.0 = ptj"
   echo "Once you have generated events update line 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
 else
   echo "Please update line 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise events with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
