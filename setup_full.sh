@@ -26,7 +26,7 @@ if [ "$doMG5" = true ]; then
   cd ../
 fi
 #cd monojet_13TeV_workarea-master/ && mv main_SAD_template.cc ../pythia8235/examples/
-cd monojet_13TeV_workarea-master/ && mv main_SiMS.cc ../pythia8235/examples/ && mv main_SiMS.cmnd ../pythia8235/examples/
+cd monojet_13TeV_workarea-master/ && mv main_SiMs.cc ../pythia8235/examples/ && mv main_SiMs.cmnd ../pythia8235/examples/
 cd ../ && rm master.zip && rm -rf monojet_13TeV_workarea-master/
 cd LHAPDF-6.2.1/ && ./configure --prefix=$PWD/../local && make && make install
 cd ../fastjet-3.3.1/ && ./configure --prefix=$PWD/../local --enable-allcxxplugins && make && make install
