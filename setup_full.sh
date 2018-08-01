@@ -77,9 +77,9 @@ if [ "$doMG5" = true ]; then
   echo "     21000 = lhaid"
   echo "     1.0 = lhe_version"
   echo "     80.0 = xqcut"
-  echo "Once you have generated events update line 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
+  echo "Once you have generated events update lines 8 and 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
 else
-  echo "Please update line 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise events with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
+  echo "Please update lines 8 and 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise events with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
 fi
 echo "NB: You should double-check that the main_SiMs executeable exists first."
 printf "When logging back in do:\n. local/env.sh\n. setup.sh\n"
