@@ -77,7 +77,6 @@ if [ "$doMG5" = true ]; then
   echo "     21000 = lhaid"
   echo "     1.0 = lhe_version"
   echo "     80.0 = xqcut"
-  echo "     80.0 = ptj"
   echo "Once you have generated events update line 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
 else
   echo "Please update line 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise events with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
