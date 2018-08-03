@@ -64,8 +64,15 @@ fi
 cd pythia8235/examples/
 sed -i "s/main89/main89 main_SiMs/g" Makefile
 make main_SiMs
+cd ../../
 chmod +x rivet-bootstrap
 INSTALL_HEPMC=0 HEPMCPATH=$PWD/local INSTALL_FASTJET=0 FASTJETPATH=$PWD/local INSTALL_BOOST=0 BOOSTPATH=/usr ./rivet-bootstrap --prefix=$PWD/local
+if [ ! -d local/include/Yoda/ ]; then
+  echo "RIVET/Yoda not installed. Rerun with:"
+  echo "chmod +x rivet-bootstrap"
+  echo "INSTALL_HEPMC=0 HEPMCPATH=$PWD/local INSTALL_FASTJET=0 FASTJETPATH=$PWD/local INSTALL_BOOST=0 BOOSTPATH=/usr ./rivet-bootstrap --prefix=$PWD/local"
+  exit
+fi
 echo "All packages installed."
 if [ "$doMG5" = true ]; then
   echo "In MG5_aMC_v2_6_3_2, run bin/mg5_aMC to create a process directory. Inside the process directory make the following changes:"
@@ -77,6 +84,9 @@ if [ "$doMG5" = true ]; then
   echo "     21000 = lhaid"
   echo "     1.0 = lhe_version"
   echo "     80.0 = xqcut"
+  echo "     True = auto_ptj_mjj"
+  echo "     -1.0  = ptj"
+  echo "     -1.0  = ptb"
   echo "Once you have generated events update lines 8 and 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
 else
   echo "Please update lines 8 and 25 in pythia8235/examples/main_SiMs.cmnd. Then shower and hadronise events with ./main_SiMs main_SiMs.cmnd test.hepmc >test.txt"
