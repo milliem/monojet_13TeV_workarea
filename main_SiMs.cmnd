@@ -6,7 +6,7 @@
 
 ! Settings that will be used in a main program.
 Main:numberOfEvents = 7000          ! number of events to generate
-Main:timesAllowErrors = 1000        ! abort run after this many flawed events
+Main:timesAllowErrors = 900000000   ! abort run after this many flawed events
 
 ! Settings related to output in init(), next() and stat().
 Init:showChangedSettings = on      ! list changed settings
